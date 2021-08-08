@@ -4,3 +4,10 @@ A program to track the COVID-19 pandemic cases worldwide. With over 5+ parameter
 # Image of reference
 
 [image](https://user-images.githubusercontent.com/82705218/128638583-10a8b338-d429-4ebb-963b-67b9b669d377.png)
+
+# Downloads
+
+
+# Contribution
+Under the MIT license and the Open Source Project Initiative, I am also open for any kind of contribution to this project. If you want to contribute to this, just send a pull request with no hesitation!
+
