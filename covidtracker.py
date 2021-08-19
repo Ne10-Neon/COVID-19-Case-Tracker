@@ -172,15 +172,11 @@ def search_by_country():
 
 
 
-# icon for the app
-iconImage = PhotoImage(file = 'icon.png')
-
 
 # writing tkinter ui code
 GUIWorkspace = Tk()
 GUIWorkspace.geometry('1100x550')
 GUIWorkspace.title("COVID-19 Case Tracker")
-GUIWorkspace.iconphoto(True, iconImage)
 font_tuple = ("calibri", 20)
 
 
