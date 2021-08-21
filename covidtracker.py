@@ -201,4 +201,4 @@ getWorld_Data()
 
 GUIWorkspace.mainloop()
 
-# COVID19-Tracker made with love (actually made with Python but yeah lol) by Neon (a.k.a --> Neonツ, Neon_DEVFN, Ne10-Neon).
+# COVID19-Tracker made with love (actually made with Python but yeah lol) by Neon (a.k.a --> Neonツ, Neon__DEV, Ne10-Neon).
