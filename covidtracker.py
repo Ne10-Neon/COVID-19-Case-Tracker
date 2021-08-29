@@ -1,7 +1,10 @@
 # importing required modules for the tracker
+
 from tkinter import *
 import requests
 import webbrowser
+
+# functions for displaying the data
 
 def getWorld_Data():
     pass
@@ -17,7 +20,6 @@ def getWorld_Data():
     'Total number of recoveries = '+recovered+'\n'+"Currently active cases of COVID-19 = "+active+'\n'+"Cases per a million = " 
     +casesPer10to6+'\n'+"Total number of countries affected by the COVID-19 Pandemic = "+countriesAffected)
     label_1.configure(foreground="blue")
-
 
 def countryDataUSA():
     #pass
@@ -128,13 +130,46 @@ def countryDataCAN():
     casesPer10to6 = str(jsonCAN['casesPerOneMillion'])
     testsConf = str(jsonCAN['tests'])
     label_countryData.config(text = "Total Number of COVID-19 cases in Canada = " +casesConf+'\n'+"Total Number of deaths in Canada = " +deathConf+'\n'+
-    "Total number of recoveries in Canada = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Canada = "+activeConf+'\n'+"Cases per a million in Canada = " 
-    +casesPer10to6+'\n'+"Critical cases in Canada = "+criticalConf+'\n'+"Number of COVID-19 tests done in Canada = "+testsConf)    
+    "Total number of recoveries in Canada = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Canada = "+activeConf+'\n'+"Cases per a million in Canada = "
+    +casesPer10to6+'\n'+"Critical cases in Canada = "+criticalConf+'\n'+"Number of COVID-19 tests done in Canada = "+testsConf)
+
+def countryDataAU():
+    #pass
+    apiAU = 'https://corona.lmao.ninja/v2/countries/Australia?yesterday&strict&query'
+    jsonAU = requests.get(apiAU).json()
+    casesConf = str(jsonAU['cases'])
+    deathConf = str(jsonAU['deaths'])
+    recoveredConf = str(jsonAU['recovered'])
+    activeConf = str(jsonAU['active'])
+    criticalConf = str(jsonAU['critical'])
+    activeConf = str(jsonAU['active'])
+    casesPer10to6 = str(jsonAU['casesPerOneMillion'])
+    testsConf = str(jsonAU['tests'])
+    label_countryData.config(text = "Total Number of COVID-19 cases in Australia = "+casesConf+'\n'+"Total Number of deaths in Australia = "+deathConf+'\n'
+    +"Total number of recoveries in Australia = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Australia = "+activeConf+'\n'+"Cases per a million in Australia = "
+    +casesPer10to6+'\n'+"Critical cases in Australia = "+criticalConf+'\n'+"Number of COVID-19 tests done in Australia = "+testsConf)
+
+def countryDataUK():
+    #pass
+    apiUK = 'https://corona.lmao.ninja/v2/countries/UK?yesterday&strict&query'
+    jsonUK = requests.get(apiUK).json()
+    casesConf = str(jsonUK['cases'])
+    deathConf = str(jsonUK['deaths'])
+    recoveredConf = str(jsonUK['recovered'])
+    activeConf = str(jsonUK['active'])
+    criticalConf = str(jsonUK['critical'])
+    activeConf = str(jsonUK['active'])
+    casesPer10to6 = str(jsonUK['casesPerOneMillion'])
+    testsConf = str(jsonUK['tests'])
+    label_countryData.config(text = "Total Number of COVID-19 cases in UK = "+casesConf+'\n'+"Total Number of deaths in UK = "+deathConf+'\n'
+    +"Total number of recoveries in UK = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in UK = "+activeConf+'\n'+"Cases per a million in UK = "
+    +casesPer10to6+'\n'+"Critical cases in UK = "+criticalConf+'\n'+"Number of COVID-19 tests done in UK = "+testsConf)
 
 
 
 
 # functions to open the web browser when clicking the button
+
 def openTwitter():
     webbrowser.open(urlTwt)
 
@@ -143,47 +178,64 @@ def openYouTube():
 
 
 # writing  ui code
-twitter = "URL below"
+
 urlTwt = 'https://twitter.com/Neon_DEVFN'
-youtube = "URL below"
 urlYt = 'https://www.youtube.com/channel/UCdqFdOJpMbyXGYnSAZdCX_Q'
 
 
-def search_by_country():
+# function to search individual country data
+
+def search_by_country(event):
     #pass
     countryName = country_searchbox.get()
     if countryName == "USA":
         countryDataUSA()
+        error_text.config(text="")
     elif countryName == "India":
         countryDataIND()
+        error_text.config(text="")
     elif countryName == "Russia":
         countryDataRUS()
+        error_text.config(text="")
     elif countryName == "Italy":
         countryDataITA()
+        error_text.config(text="")
     elif countryName == "France":
         countryDataFRA()  
+        error_text.config(text="")
     elif countryName == "Germany":
         countryDataGER()
+        error_text.config(text="")
     elif countryName == "Canada":
         countryDataCAN()
-    else: 
-        error_text.config(text = "Error: Country is not defined or not available.\nPlease double check your spelling.")
+        error_text.config(text="")
+    elif countryName == "Australia":
+        countryDataAU()
+        error_text.config(text="")
+    elif countryName == "UK":
+        countryDataUK()
+        error_text.config(text="")
+    else:
+        print(f"{countryName} is not defined.")
+        error_text.config(text=f"Error: {countryName} is not defined or not available.\nPlease double check your spelling.")
         error_text.configure(foreground="red")
 
 
 
 
 # writing tkinter ui code
+
 GUIWorkspace = Tk()
 GUIWorkspace.geometry('1100x550')
 GUIWorkspace.title("COVID-19 Case Tracker")
 font_tuple = ("calibri", 20)
+font_button_tuple = ("calibri", 12)
 
 
-# twitterButton = Button(GUIWorkspace, font = font_tuple, text = "My Twitter!", height=1, command = openTwitter)
-# twitterButton.pack(side='left', side='bottom')
-# ytButton = Button(GUIWorkspace, font = font_tuple, text = "My YouTube!", height=1, command = openYouTube)
-# ytButton.pack(side='left', side='bottom')
+# twitterButton = Button(GUIWorkspace, font = font_button_tuple, text = "My Twitter!", height=1, command = openTwitter)
+# twitterButton.pack(side='bottom')
+# ytButton = Button(GUIWorkspace, font = font_button_tuple, text = "My YouTube!", height=1, command = openYouTube)
+# ytButton.pack(side='bottom')
 
 label_1 = Label(GUIWorkspace, font = font_tuple)
 label_1.pack(pady=10)
@@ -196,9 +248,11 @@ search_button.pack()
 error_text = Label(GUIWorkspace, font = font_tuple)
 error_text.pack()
 
+GUIWorkspace.bind('<Return>', search_by_country)
+
 
 getWorld_Data()
 
 GUIWorkspace.mainloop()
 
-# COVID19-Tracker made with love (actually made with Python but yeah lol) by Neon (a.k.a --> Neonツ, Neon__DEV, Ne10-Neon).
+# COVID19-Tracker made with love and Python by Neon (a.k.a --> Neonツ, Neon__DEV, Ne10-Neon).
