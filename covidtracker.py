@@ -6,8 +6,8 @@ import webbrowser
 
 # functions for displaying the data
 
-def getWorld_Data():
-    pass
+def World_Data():
+    # pass
     covid_api = 'https://corona.lmao.ninja/v2/all?yesterday='
     covid_json = requests.get(covid_api).json()
     total = str(covid_json['cases'])
@@ -21,150 +21,34 @@ def getWorld_Data():
     +casesPer10to6+'\n'+"Total number of countries affected by the COVID-19 Pandemic = "+countriesAffected)
     label_1.configure(foreground="blue")
 
-def countryDataUSA():
-    #pass
-    apiUSA = 'https://corona.lmao.ninja/v2/countries/USA?yesterday&strict&query'
-    jsonUSA = requests.get(apiUSA).json()
-    casesConf = str(jsonUSA['cases'])
-    deathConf = str(jsonUSA['deaths'])
-    recoveredConf = str(jsonUSA['recovered'])
-    activeConf = str(jsonUSA['active'])
-    criticalConf = str(jsonUSA['critical'])
-    activeConf = str(jsonUSA['active'])
-    casesPer10to6 = str(jsonUSA['casesPerOneMillion'])
-    testsConf = str(jsonUSA['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in USA = " +casesConf+'\n'+"Total Number of deaths in USA= " +deathConf+'\n'+
-    "Total number of recoveries in USA = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in USA = "+activeConf+'\n'+"Cases per a million in USA = " 
-    +casesPer10to6+'\n'+"Critical cases in USA = "+criticalConf+'\n'+"Number of COVID-19 tests done in USA = "+testsConf)
+def countryData(cName):
+    # pass
+    api = f'https://corona.lmao.ninja/v2/countries/{cName}?yesterday&strict&query'
+    json = requests.get(api).json()
+    country_Name = str(json['country'])
+    casesConf = str(json['cases'])
+    deathConf = str(json['deaths'])
+    recoveredConf = str(json['recovered'])
+    criticalConf = str(json['critical'])
+    activeConf = str(json['active'])
+    casesPer10to6 = str(json['casesPerOneMillion'])
+    testsConf = str(json['tests'])
+    data_label.config(text = f"Total Number of COVID-19 cases in {country_Name} = " +casesConf+'\n'+f"Total Number of deaths in {country_Name}= " +deathConf+'\n'+
+    f"Total number of recoveries in {country_Name} = "+recoveredConf+'\n'+f"Currently active cases of COVID-19 in {country_Name} = "+activeConf+'\n'+f"Cases per a million in {country_Name} = "
+    +casesPer10to6+'\n'+f"Critical cases in {country_Name} = "+criticalConf+'\n'+f"Number of COVID-19 tests done in {country_Name} = "+testsConf)
 
-def countryDataIND():
-    #pass
-    apiIND = 'https://corona.lmao.ninja/v2/countries/India?yesterday&strict&query'
-    jsonIND = requests.get(apiIND).json()
-    casesConf = str(jsonIND['cases'])
-    deathConf = str(jsonIND['deaths'])
-    recoveredConf = str(jsonIND['recovered'])
-    activeConf = str(jsonIND['active'])
-    criticalConf = str(jsonIND['critical'])
-    activeConf = str(jsonIND['active'])
-    casesPer10to6 = str(jsonIND['casesPerOneMillion'])
-    testsConf = str(jsonIND['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in India = " +casesConf+'\n'+"Total Number of deaths in India = " +deathConf+'\n'+
-    "Total number of recoveries in India = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in India = "+activeConf+'\n'+"Cases per a million in India = " 
-    +casesPer10to6+'\n'+"Critical cases in India = "+criticalConf+'\n'+"Number of COVID-19 tests done in India = "+testsConf)
-
-def countryDataRUS():
-    #pass
-    apiRUS = 'https://corona.lmao.ninja/v2/countries/Russia?yesterday&strict&query'
-    jsonRUS = requests.get(apiRUS).json()
-    casesConf = str(jsonRUS['cases'])
-    deathConf = str(jsonRUS['deaths'])
-    recoveredConf = str(jsonRUS['recovered'])
-    activeConf = str(jsonRUS['active'])
-    criticalConf = str(jsonRUS['critical'])
-    activeConf = str(jsonRUS['active'])
-    casesPer10to6 = str(jsonRUS['casesPerOneMillion'])
-    testsConf = str(jsonRUS['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in Russia = " +casesConf+'\n'+"Total Number of deaths in Russia = " +deathConf+'\n'+
-    "Total number of recoveries in Russia = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Russia = "+activeConf+'\n'+"Cases per a million in Russia = " 
-    +casesPer10to6+'\n'+"Critical cases in Russia = "+criticalConf+'\n'+"Number of COVID-19 tests done in Russia = "+testsConf)    
-
-def countryDataITA():
-    #pass
-    apiITA = 'https://corona.lmao.ninja/v2/countries/Italy?yesterday&strict&query'
-    jsonITA = requests.get(apiITA).json()
-    casesConf = str(jsonITA['cases'])
-    deathConf = str(jsonITA['deaths'])
-    recoveredConf = str(jsonITA['recovered'])
-    activeConf = str(jsonITA['active'])
-    criticalConf = str(jsonITA['critical'])
-    activeConf = str(jsonITA['active'])
-    casesPer10to6 = str(jsonITA['casesPerOneMillion'])
-    testsConf = str(jsonITA['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in Italy = " +casesConf+'\n'+"Total Number of deaths in Italy = " +deathConf+'\n'+
-    "Total number of recoveries in Italy = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Italy = "+activeConf+'\n'+"Cases per a million in Italy = " 
-    +casesPer10to6+'\n'+"Critical cases in Italy = "+criticalConf+'\n'+"Number of COVID-19 tests done in Italy = "+testsConf) 
-
-def countryDataFRA():
-    #pass
-    apiFRA = 'https://corona.lmao.ninja/v2/countries/France?yesterday&strict&query'
-    jsonFRA = requests.get(apiFRA).json()
-    casesConf = str(jsonFRA['cases'])
-    deathConf = str(jsonFRA['deaths'])
-    recoveredConf = str(jsonFRA['recovered'])
-    activeConf = str(jsonFRA['active'])
-    criticalConf = str(jsonFRA['critical'])
-    activeConf = str(jsonFRA['active'])
-    casesPer10to6 = str(jsonFRA['casesPerOneMillion'])
-    testsConf = str(jsonFRA['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in France = " +casesConf+'\n'+"Total Number of deaths in France = " +deathConf+'\n'+
-    "Total number of recoveries in France = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in France = "+activeConf+'\n'+"Cases per a million in France = " 
-    +casesPer10to6+'\n'+"Critical cases in France = "+criticalConf+'\n'+"Number of COVID-19 tests done in France = "+testsConf)    
-
-def countryDataGER():
-    #pass
-    apiGER = 'https://corona.lmao.ninja/v2/countries/Germany?yesterday&strict&query'
-    jsonGER = requests.get(apiGER).json()
-    casesConf = str(jsonGER['cases'])
-    deathConf = str(jsonGER['deaths'])
-    recoveredConf = str(jsonGER['recovered'])
-    activeConf = str(jsonGER['active'])
-    criticalConf = str(jsonGER['critical'])
-    activeConf = str(jsonGER['active'])
-    casesPer10to6 = str(jsonGER['casesPerOneMillion'])
-    testsConf = str(jsonGER['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in Germany = " +casesConf+'\n'+"Total Number of deaths in Germany = " +deathConf+'\n'+
-    "Total number of recoveries in Germany = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Germany = "+activeConf+'\n'+"Cases per a million in Germany = " 
-    +casesPer10to6+'\n'+"Critical cases in Germany = "+criticalConf+'\n'+"Number of COVID-19 tests done in Germany = "+testsConf)    
-
-def countryDataCAN():
-    #pass
-    apiCAN = 'https://corona.lmao.ninja/v2/countries/Canada?yesterday&strict&query'
-    jsonCAN = requests.get(apiCAN).json()
-    casesConf = str(jsonCAN['cases'])
-    deathConf = str(jsonCAN['deaths'])
-    recoveredConf = str(jsonCAN['recovered'])
-    activeConf = str(jsonCAN['active'])
-    criticalConf = str(jsonCAN['critical'])
-    activeConf = str(jsonCAN['active'])
-    casesPer10to6 = str(jsonCAN['casesPerOneMillion'])
-    testsConf = str(jsonCAN['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in Canada = " +casesConf+'\n'+"Total Number of deaths in Canada = " +deathConf+'\n'+
-    "Total number of recoveries in Canada = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Canada = "+activeConf+'\n'+"Cases per a million in Canada = "
-    +casesPer10to6+'\n'+"Critical cases in Canada = "+criticalConf+'\n'+"Number of COVID-19 tests done in Canada = "+testsConf)
-
-def countryDataAU():
-    #pass
-    apiAU = 'https://corona.lmao.ninja/v2/countries/Australia?yesterday&strict&query'
-    jsonAU = requests.get(apiAU).json()
-    casesConf = str(jsonAU['cases'])
-    deathConf = str(jsonAU['deaths'])
-    recoveredConf = str(jsonAU['recovered'])
-    activeConf = str(jsonAU['active'])
-    criticalConf = str(jsonAU['critical'])
-    activeConf = str(jsonAU['active'])
-    casesPer10to6 = str(jsonAU['casesPerOneMillion'])
-    testsConf = str(jsonAU['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in Australia = "+casesConf+'\n'+"Total Number of deaths in Australia = "+deathConf+'\n'
-    +"Total number of recoveries in Australia = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in Australia = "+activeConf+'\n'+"Cases per a million in Australia = "
-    +casesPer10to6+'\n'+"Critical cases in Australia = "+criticalConf+'\n'+"Number of COVID-19 tests done in Australia = "+testsConf)
-
-def countryDataUK():
-    #pass
-    apiUK = 'https://corona.lmao.ninja/v2/countries/UK?yesterday&strict&query'
-    jsonUK = requests.get(apiUK).json()
-    casesConf = str(jsonUK['cases'])
-    deathConf = str(jsonUK['deaths'])
-    recoveredConf = str(jsonUK['recovered'])
-    activeConf = str(jsonUK['active'])
-    criticalConf = str(jsonUK['critical'])
-    activeConf = str(jsonUK['active'])
-    casesPer10to6 = str(jsonUK['casesPerOneMillion'])
-    testsConf = str(jsonUK['tests'])
-    label_countryData.config(text = "Total Number of COVID-19 cases in UK = "+casesConf+'\n'+"Total Number of deaths in UK = "+deathConf+'\n'
-    +"Total number of recoveries in UK = "+recoveredConf+'\n'+"Currently active cases of COVID-19 in UK = "+activeConf+'\n'+"Cases per a million in UK = "
-    +casesPer10to6+'\n'+"Critical cases in UK = "+criticalConf+'\n'+"Number of COVID-19 tests done in UK = "+testsConf)
-
+def stateData(dName):
+    # pass
+    api = f'https://corona.lmao.ninja/v2/states/{dName}?yesterday='
+    json = requests.get(api).json()
+    state_Name = str(json['state'])
+    casesConf = str(json['cases'])
+    deathConf = str(json['deaths'])
+    activeConf = str(json['active'])
+    testsPer10to6 = str(json['testsPerOneMillion'])
+    testsConf = str(json['tests'])
+    state_label.config(text = f"Total Number of COVID-19 cases in {state_Name} = " +casesConf+'\n'+f"Total Number of deaths in {state_Name}= " +deathConf+'\n'+f"Currently active cases of COVID-19 in {state_Name} = "+activeConf+
+    '\n'+f"Total tests done in {state_Name} =" +testsConf+'\n'+f"Tests done per a million in {state_Name} = " +testsPer10to6)
 
 
 
@@ -179,48 +63,49 @@ def openYouTube():
 
 # writing  ui code
 
-urlTwt = 'https://twitter.com/Neon_DEVFN'
+urlTwt = 'https://twitter.com/Neon__DEV'
 urlYt = 'https://www.youtube.com/channel/UCdqFdOJpMbyXGYnSAZdCX_Q'
 
 
 # function to search individual country data
 
 def search_by_country(event):
-    #pass
-    countryName = country_searchbox.get()
-    if countryName == "USA":
-        countryDataUSA()
-        error_text.config(text="")
-    elif countryName == "India":
-        countryDataIND()
-        error_text.config(text="")
-    elif countryName == "Russia":
-        countryDataRUS()
-        error_text.config(text="")
-    elif countryName == "Italy":
-        countryDataITA()
-        error_text.config(text="")
-    elif countryName == "France":
-        countryDataFRA()  
-        error_text.config(text="")
-    elif countryName == "Germany":
-        countryDataGER()
-        error_text.config(text="")
-    elif countryName == "Canada":
-        countryDataCAN()
-        error_text.config(text="")
-    elif countryName == "Australia":
-        countryDataAU()
-        error_text.config(text="")
-    elif countryName == "UK":
-        countryDataUK()
-        error_text.config(text="")
-    else:
-        print(f"{countryName} is not defined.")
-        error_text.config(text=f"Error: {countryName} is not defined or not available.\nPlease double check your spelling.")
-        error_text.configure(foreground="red")
+    # pass
+    countryName = searchbox.get()
+    stateName = searchbox.get()
+    if countryName:
+        try:
+            countryData(countryName)
+            error_text.config(text="")
+            print(f"Data Generated for {countryName}")
+        except:
+            print(f"{countryName} is not defined.")
+            error_text.config(text=f"Error: {countryName} is not defined or un-available.\nPlease double check your spelling.")
+            error_text.configure(foreground='red')
+    elif stateName:
+        try:
+            stateData(stateName)
+            error_text.config(text="")
+            print(f"Data Generated for {stateName}")
+        except:
+            print(f"{stateName} is not defined.")
+            error_text.config(text=f"Error: {stateName} is not defined or un-available.\nPlease double check your spelling.")
 
+# function to search individual state data
 
+# def search_by_state(event):
+    # pass
+#    stateName = searchbox.get()
+#    if stateName:
+#        try:
+#            stateData(stateName)
+#            error_text.config(text="")
+#            print(f"Data Generated for {stateName}")
+#        except:
+#            print(f"{stateName} is not defined.")
+#            error_text.config(text=f"Error: {stateName} is not defined or un-available.
+#            \nPlease double check your spelling.")
+#           error_text.configure(foreground='red')
 
 
 # writing tkinter ui code
@@ -232,26 +117,29 @@ font_tuple = ("calibri", 20)
 font_button_tuple = ("calibri", 12)
 
 
-# twitterButton = Button(GUIWorkspace, font = font_button_tuple, text = "My Twitter!", height=1, command = openTwitter)
-# twitterButton.pack(side='bottom')
-# ytButton = Button(GUIWorkspace, font = font_button_tuple, text = "My YouTube!", height=1, command = openYouTube)
-# ytButton.pack(side='bottom')
+twitterButton = Button(GUIWorkspace, font = font_button_tuple, text = "My Twitter!", height=1, command = openTwitter)
+twitterButton.pack(side='bottom')
+ytButton = Button(GUIWorkspace, font = font_button_tuple, text = "My YouTube!", height=1, command = openYouTube)
+ytButton.pack(side='bottom')
 
 label_1 = Label(GUIWorkspace, font = font_tuple)
 label_1.pack(pady=10)
-label_countryData = Label(GUIWorkspace, font = font_tuple)
-label_countryData.pack(pady=10)
-country_searchbox = Entry(GUIWorkspace, font = font_tuple, text = "Search by Country:", width = 20)
-country_searchbox.pack()
+data_label = Label(GUIWorkspace, font = font_tuple)
+data_label.pack(pady=10)
+state_label = Label(GUIWorkspace, font = font_tuple)
+state_label.pack()
+searchbox = Entry(GUIWorkspace, font = font_tuple, text = "Search by Country:", width = 20)
+searchbox.pack()
 search_button = Button(GUIWorkspace, font = font_tuple, width = 15, text = "Search", command = search_by_country)
 search_button.pack()
 error_text = Label(GUIWorkspace, font = font_tuple)
 error_text.pack()
 
+
 GUIWorkspace.bind('<Return>', search_by_country)
 
 
-getWorld_Data()
+World_Data()
 
 GUIWorkspace.mainloop()
 
