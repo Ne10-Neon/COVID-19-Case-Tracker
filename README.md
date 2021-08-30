@@ -3,7 +3,8 @@ A program to track the COVID-19 pandemic cases worldwide. With over 5+ parameter
 
 # Image of reference
 
-![image](https://user-images.githubusercontent.com/82705218/130108554-fdf5241f-9410-4fa0-9c37-fc19d7dd65a6.png)
+![image](https://user-images.githubusercontent.com/82705218/131291902-7e0f0e3d-4993-4a9c-ae19-ded04571d76e.png)
+
 
 
 # Downloads
