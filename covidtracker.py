@@ -37,22 +37,15 @@ def countryData(cName):
     f"Total number of recoveries in {country_Name} = "+recoveredConf+'\n'+f"Currently active cases of COVID-19 in {country_Name} = "+activeConf+'\n'+f"Cases per a million in {country_Name} = "
     +casesPer10to6+'\n'+f"Critical cases in {country_Name} = "+criticalConf+'\n'+f"Number of COVID-19 tests done in {country_Name} = "+testsConf)
 
-def stateData(dName):
-    # pass
-    api = f'https://corona.lmao.ninja/v2/states/{dName}?yesterday='
-    json = requests.get(api).json()
-    state_Name = str(json['state'])
-    casesConf = str(json['cases'])
-    deathConf = str(json['deaths'])
-    activeConf = str(json['active'])
-    testsPer10to6 = str(json['testsPerOneMillion'])
-    testsConf = str(json['tests'])
-    state_label.config(text = f"Total Number of COVID-19 cases in {state_Name} = " +casesConf+'\n'+f"Total Number of deaths in {state_Name}= " +deathConf+'\n'+f"Currently active cases of COVID-19 in {state_Name} = "+activeConf+
-    '\n'+f"Total tests done in {state_Name} =" +testsConf+'\n'+f"Tests done per a million in {state_Name} = " +testsPer10to6)
-
-
+    
 
 # functions to open the web browser when clicking the button
+
+
+urlTwt = 'https://twitter.com/NotNeon_DEV'
+urlYt = 'https://www.youtube.com/channel/UCdqFdOJpMbyXGYnSAZdCX_Q'
+urlGit = 'https://github.com/NotNeonDEV'
+
 
 def openTwitter():
     webbrowser.open(urlTwt)
@@ -60,11 +53,15 @@ def openTwitter():
 def openYouTube():
     webbrowser.open(urlYt)
 
+def openGitHub():
+    webbrowser.open(urlGit)
 
-# writing  ui code
+# function to bind click to search_box
 
-urlTwt = 'https://twitter.com/Neon__DEV'
-urlYt = 'https://www.youtube.com/channel/UCdqFdOJpMbyXGYnSAZdCX_Q'
+def search_click(event):
+    searchbox.config(state=NORMAL)
+    searchbox.delete(0, END)
+
 
 
 # function to search individual country data
@@ -82,30 +79,8 @@ def search_by_country(event):
             print(f"{countryName} is not defined.")
             error_text.config(text=f"Error: {countryName} is not defined or un-available.\nPlease double check your spelling.")
             error_text.configure(foreground='red')
-    elif stateName:
-        try:
-            stateData(stateName)
-            error_text.config(text="")
-            print(f"Data Generated for {stateName}")
-        except:
-            print(f"{stateName} is not defined.")
-            error_text.config(text=f"Error: {stateName} is not defined or un-available.\nPlease double check your spelling.")
-
-# function to search individual state data
-
-# def search_by_state(event):
-    # pass
-#    stateName = searchbox.get()
-#    if stateName:
-#        try:
-#            stateData(stateName)
-#            error_text.config(text="")
-#            print(f"Data Generated for {stateName}")
-#        except:
-#            print(f"{stateName} is not defined.")
-#            error_text.config(text=f"Error: {stateName} is not defined or un-available.
-#            \nPlease double check your spelling.")
-#           error_text.configure(foreground='red')
+            
+            
 
 
 # writing tkinter ui code
@@ -114,13 +89,20 @@ GUIWorkspace = Tk()
 GUIWorkspace.geometry('1100x550')
 GUIWorkspace.title("COVID-19 Case Tracker")
 font_tuple = ("calibri", 20)
-font_button_tuple = ("calibri", 12)
 
+twticon = PhotoImage(file='twittericon.png')
+yticon = PhotoImage(file='youtubeicon.png')
+giticon = PhotoImage(file='githubicon.png')
+icon = PhotoImage(file='icon.png')
 
-twitterButton = Button(GUIWorkspace, font = font_button_tuple, text = "My Twitter!", height=1, command = openTwitter)
-twitterButton.pack(side='bottom')
-ytButton = Button(GUIWorkspace, font = font_button_tuple, text = "My YouTube!", height=1, command = openYouTube)
-ytButton.pack(side='bottom')
+GUIWorkspace.iconphoto(False, icon)
+
+twitterButton = Button(GUIWorkspace, image = twticon, border = 0, command = openTwitter)
+twitterButton.place(x=30, y=30)
+ytButton = Button(GUIWorkspace, image = yticon, border = 0, command = openYouTube)
+ytButton.place(x=30, y=110)
+githubButton = Button(GUIWorkspace, image = giticon, border = 0, command = openGitHub)
+githubButton.place(x=30, y=190)
 
 label_1 = Label(GUIWorkspace, font = font_tuple)
 label_1.pack(pady=10)
@@ -129,9 +111,12 @@ data_label.pack(pady=10)
 state_label = Label(GUIWorkspace, font = font_tuple)
 state_label.pack()
 searchbox = Entry(GUIWorkspace, font = font_tuple, text = "Search by Country:", width = 20)
+searchbox.insert(0, "Search a country here...")
+searchbox.config(state=DISABLED)
+searchbox.bind('<Button-1>', search_click)
 searchbox.pack()
-search_button = Button(GUIWorkspace, font = font_tuple, width = 15, text = "Search", command = search_by_country)
-search_button.pack()
+# search_button = Button(GUIWorkspace, font = font_tuple, height = 1, width = 15, text = "Search", command = search_by_country)
+# search_button.pack()
 error_text = Label(GUIWorkspace, font = font_tuple)
 error_text.pack()
 
