@@ -2,15 +2,18 @@
 A program to track the COVID-19 pandemic cases worldwide. With over 5+ parameters, this program helps in keeping track of the number of COVID-19 cases worldwide, number of deaths, and much more!
 
 # Image of reference
-![image](https://user-images.githubusercontent.com/82705218/134456219-3dc1e938-95c5-4fd9-8ea3-ea0fc5098dc1.png)
+![image](https://user-images.githubusercontent.com/82705218/134952771-888fb032-5f8c-488d-ac51-36be28454f99.png)
 
-![image](https://user-images.githubusercontent.com/82705218/134456238-947495ee-959a-437b-8197-7d42ccbbd67f.png)
+![image](https://user-images.githubusercontent.com/82705218/134952813-63435e49-04af-4775-9e6b-05b5ea2add01.png)
 
-![image](https://user-images.githubusercontent.com/82705218/134456253-667eab18-1d2b-42bc-8b86-98b321446e5e.png)
+![image](https://user-images.githubusercontent.com/82705218/134952848-ab819e09-7148-4593-97b0-131157f8efbe.png)
+
+![image](https://user-images.githubusercontent.com/82705218/134952877-1f6c4cab-fdcb-4a5e-9423-45ca05d3bba4.png)
+
 
 
 # Downloads
-You can download the latest version of COVID-19 Case Tracker from [here](https://github.com/Ne10-Neon/COVID-19-Case-Tracker/releases/tag/v3.0)
+You can download the latest version of COVID-19 Case Tracker from [here](https://github.com/NotNeonDEV/COVID-19-Case-Tracker/releases/tag/v4.0)
 
 # Contribution
-Under the MIT license and the Open Source Project Initiative, I am also open for any kind of contribution to this project. If you want to contribute to this, just send a pull request with no hesitation!
+This project is currently discontinued as it is fully complete. It was a great run, and a big learning experience for me.
