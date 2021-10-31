@@ -97,7 +97,7 @@ def exit_app():
 def about_window():
     window = Toplevel(master=GUIWorkspace)
     window.title("About this App")
-    window.geometry('400x400')
+    window.geometry('950x400')
 
     about_label = Label(window, font=font_tuple, text="This software is created and owned by Neon (NotNeonDEV, @NotNeon_DEV, Neonツ)\nunder the GitHub MIT license. \n\nTo know more about the license info on this app, visit our github page.")
     about_label.pack()
